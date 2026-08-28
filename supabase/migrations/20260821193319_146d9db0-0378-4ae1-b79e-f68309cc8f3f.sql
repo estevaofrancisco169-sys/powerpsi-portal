@@ -1,0 +1,2 @@
+INSERT INTO public.user_roles (user_id, role) VALUES ('90416f87-43a1-4e49-8644-9860192e3ea0','admin') ON CONFLICT DO NOTHING;
+UPDATE public.profiles SET nome = 'Administrador' WHERE id = '90416f87-43a1-4e49-8644-9860192e3ea0';
