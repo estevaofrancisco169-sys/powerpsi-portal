@@ -31,7 +31,7 @@ export async function exigirAdmin(userId: string) {
     .maybeSingle();
   if (error) {
   console.error("[exigirAdmin] erro real:", error);
-  throw new Error("Não foi possível validar suas permissões.");
+  throw new Error("Não foi possível validar suas permissõs.");
 }
   if (!data) throw new Error("Apenas administradores podem gerenciar usuários.");
 }
