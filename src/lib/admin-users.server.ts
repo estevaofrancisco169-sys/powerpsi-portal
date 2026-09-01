@@ -44,7 +44,7 @@ export async function criarUsuarioAdmin(input: NovoUsuario) {
   const ehCnpj = input.documento_tipo === "cnpj";
   const empresa = ehCnpj ? await razaoSocialPorCnpj(input.documento) : null;
   if (ehCnpj && !empresa) {
-    throw new Error("CNPJ não encontrado na base de empresas clientes. Cadastre a empresa primeiro.");
+    throw new Error("CNP não encontrado na base de empresas clientes. Cadastre a empresa primeiro.");
   }
 
   const { data, error } = await supabaseAdmin.auth.admin.createUser({
