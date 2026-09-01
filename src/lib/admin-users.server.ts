@@ -31,7 +31,7 @@ export async function exigirAdmin(userId: string) {
     .maybeSingle();
   if (error) {
   console.error("[exigirAdmin] erro real:", error);
-  throw new Error("Não foi possível validar suas permissõs.");
+  throw new Error("Não foi possível validar suas permissões.");
   throw new Error("Não foi possível validar suas permissões.");
 }
   if (!data) throw new Error("Apenas administradores podem gerenciar usuários.");
@@ -48,7 +48,7 @@ export async function criarUsuarioAdmin(input: NovoUsuario) {
   const ehCnpj = input.documento_tipo === "cnpj";
   const empresa = ehCnpj ? await razaoSocialPorCnpj(input.documento) : null;
   if (ehCnpj && !empresa) {
-    throw new Error("NPJ não encontrado na base de empresas clientes. Cadastre a empresa primeiro.");
+    throw new Error("CNPJ não encontrado na base de empresas clientes. Cadastre a empresa primeiro.");
   }
 
   const { data, error } = await supabaseAdmin.auth.admin.createUser({
