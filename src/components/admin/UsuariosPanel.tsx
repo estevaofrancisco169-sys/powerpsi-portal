@@ -83,7 +83,19 @@ export function UsuariosPanel() {
   });
 
   const salvar = useMutation({
-    mutationFn: async () => criar({ data: form }),
+  mutationFn: async () => {
+    if (form.role === "aluno") {
+      return criar({ data: form });
+    }
+
+    return criar({
+      data: {
+        ...form,
+        documento: "00000000000",
+        documento_tipo: "cpf",
+      },
+    });
+  },
     onSuccess: (r) => {
       toast.success(
         `Usuário criado.${r?.empresa ? ` Empresa associada: ${r.empresa}.` : ""} Envie o e-mail e a senha ao cliente.`,
