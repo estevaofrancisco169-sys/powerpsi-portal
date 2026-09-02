@@ -36,7 +36,7 @@ export function VisaoGeral() {
 
   const cards = [
     { label: "Aulas publicadas", valor: data?.videos.length ?? 0, icon: PlayCircle },
-    { label: "Alunos cadastrados", valor: data?.profiles.length ?? 0, icon: Users },
+    { label: "Usuários cadastrados", valor: data?.profiles.length ?? 0, icon: Users },
     { label: "Clientes (CNPJ)", valor: data?.companies.length ?? 0, icon: Building2 },
     { label: "Visualizações", valor: data?.views.length ?? 0, icon: Eye },
   ];
