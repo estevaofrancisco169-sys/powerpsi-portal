@@ -12,7 +12,7 @@ export function VisaoGeral() {
         await Promise.all([
           supabase.from("videos").select("id,titulo"),
           supabase.from("video_views").select("video_id,concluido,ultima_vez"),
-          supabase.from("user_roles").select("user_id, role").eq("role", "Aluno")
+          supabase.from("profiles").select("id,nome,empresa,created_at"),
           supabase.from("companies").select("id"),
           supabase.from("access_logs").select("id,ocorrido_em,user_id").order("ocorrido_em", { ascending: false }).limit(6),
         ]);
